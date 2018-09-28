@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author GenshenWang.nomico
@@ -32,7 +33,9 @@ public class LoginController {
      */
     @RequestMapping(value = "/dologin", method = RequestMethod.POST)
     @ResponseBody
-    public JsonMsg dologin(HttpServletRequest request){
+    public JsonMsg dologin(HttpServletRequest request, HttpServletResponse response){
+        response.addHeader("Access-Control-Allow-Origin", "*");   //用于ajax post跨域（*，最好指定确定的http等协议+ip+端口号）
+        response.setCharacterEncoding("utf-8");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println(username + password);

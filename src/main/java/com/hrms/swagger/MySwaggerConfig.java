@@ -17,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class MySwaggerConfig {
 
+    //http://localhost:8080/swagger-ui.html#/department-controller
 
     @Bean
     public Docket userApi() {
@@ -24,7 +25,7 @@ public class MySwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()  // 选择那些路径和api会生成document
                 .apis(RequestHandlerSelectors.basePackage("com.hrms.controller"))
-                .paths(PathSelectors.any()) // 对所有路径进行监�?
+                .paths(PathSelectors.any()) // 对所有路径进行监听?
                 .build();
     }
 
@@ -34,8 +35,8 @@ public class MySwaggerConfig {
                 .title("SSM_App")
                 .contact(contact)
                 .version("1.0")
-                .license("Apache 2.0")
-                .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0")
+                .license("主页")
+                .licenseUrl("http://localhost:8080")
                 .build();
     }
 
